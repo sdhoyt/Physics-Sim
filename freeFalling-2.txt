@@ -9,11 +9,11 @@
 #initial x position
 50
 #initial y position
-400
+600
 #initial x velocity
-0
+600
 #initial y velocity
-0
+200
 #initial x acceleration
 0
 #initial y acceleration
@@ -23,13 +23,13 @@
 #mass
 1
 #initial x position
-50
+80
 #initial y position
 100
 #initial x velocity
-40
+-600
 #initial y velocity
-0
+-400
 #initial x acceleration
 0
 #initial y acceleration

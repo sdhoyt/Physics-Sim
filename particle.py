@@ -21,10 +21,10 @@ class Particle:
     def check_bounds(self, width, height,interval):
         if self.position[0] < 0:
             x_vel = self.velocity[0] * -1
-            self.position = (width, self.position[1])
+            self.position = (0, self.position[1])
         elif self.position[0] > width:
             x_vel = self.velocity[0] * -1
-            self.position = (0, self.position[1])
+            self.position = (width, self.position[1])
         else:
             x_vel = self.velocity[0]
         if height - self.position[1] < 0:

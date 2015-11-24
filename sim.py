@@ -4,9 +4,9 @@ import pygame, time
 
 ##### Functions #####
 def refresh_img(particle_list):
+  screen.fill(background_colour)
   for particle in particle_list:
-    screen.fill(background_colour)
-    pygame.draw.circle(screen, (0, 0, 0), (int(particle.position[0]), height - int(particle.position[1])), 5, 5)
+    pygame.draw.circle(screen, (0, 0, 0), (int(particle.position[0]), height - int(particle.position[1])), 2, 0)
     pygame.display.update()
   time.sleep(0.1)
 
@@ -35,11 +35,11 @@ while running:
 
   interval = 0.05
   timer = 0
-  while timer < 300:
+  while timer < 600:
     for particle in particle_list:
       particle.set_position(interval)
       particle.check_bounds(width, height, interval)
-    if timer < 300:
+    if timer < 600:
       refresh_img(particle_list)
       timer += 1
     else:
