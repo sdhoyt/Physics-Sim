@@ -5,9 +5,10 @@ import pygame, time
 ##### Functions #####
 def refresh_img(particle_list):
   for particle in particle_list:
-    pygame.draw.circle(screen, (0, 0, 0), (particle.position[0], height - int(particle.position[1])), 5, 5)
+    screen.fill(background_colour)
+    pygame.draw.circle(screen, (0, 0, 0), (int(particle.position[0]), height - int(particle.position[1])), 5, 5)
     pygame.display.update()
-  time.sleep(1)
+  time.sleep(0.1)
 
 #####################
 
@@ -32,13 +33,15 @@ while running:
 
   particle_list = read_input("freeFalling-2.txt")
 
-  for interval in range(0, 15):
+  interval = 0.05
+  timer = 0
+  while timer < 300:
     for particle in particle_list:
       particle.set_position(interval)
-
-    if interval <= 15:
+      particle.check_bounds(width, height, interval)
+    if timer < 300:
       refresh_img(particle_list)
-
+      timer += 1
     else:
       break
 

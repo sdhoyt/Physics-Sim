@@ -1,0 +1,20 @@
+#1 Free Falling Particles
+#
+#Number of Particles
+1
+#
+#Particle 1
+#mass
+1
+#initial x position
+50
+#initial y position
+700
+#initial x velocity
+0
+#initial y velocity
+0
+#initial x acceleration
+0
+#initial y acceleration
+0
