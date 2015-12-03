@@ -2,18 +2,20 @@
 #
 #Number of Particles
 2
+#Gravity
+1
 #
 #Particle 1
 #mass
 1
 #initial x position
-50
+100
 #initial y position
-600
+700
 #initial x velocity
-600
+0
 #initial y velocity
-200
+0
 #initial x acceleration
 0
 #initial y acceleration
@@ -23,13 +25,13 @@
 #mass
 1
 #initial x position
-80
+400
 #initial y position
-100
+700
 #initial x velocity
--600
+60
 #initial y velocity
--400
+0
 #initial x acceleration
 0
 #initial y acceleration
