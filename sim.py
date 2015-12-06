@@ -5,40 +5,40 @@ import pygame, time, sys
 
 ##### Functions #####
 def refresh_img(particle_list):
-  #screen.fill(background_colour)
+  screen.fill(background_colour)
   for particle in particle_list:
     pygame.draw.circle(screen, (0, 0, 0), (int(particle.position[0]), height - int(particle.position[1])), 3, 0)
     pygame.display.update()
   time.sleep(0.1)
 
-def check_collision(particle_list):
-  position_list = list()
-  duplicates_list = list()
-  index_list = list()
-  velocity_list = list()
-  duplicates = 0
-  for particle in particle_list:
-    position_list.append(particle.position)
-  for i in range(0,len(position_list) - 1):
-    for j in range(0,len(position_list) - 1):
-      if position_list[i] == position_list[j]:
-        duplicates += 1
-      duplicates_list.append(duplicates)
-  for index in range(0, len(duplicates_list) - 1):
-    if duplicates_list[index] > 1:
-      index_list.append(index)
-  for particle in range(0, len(particle_list) - 1):
-    for index in index_list:
-      if particle == index:
-        velocity_list.append(particle_list[index].velocity)
-  for particle in range(0, len(particle_list) - 1):
-    x_vel = -particle_list[particle].velocity[0]
-    y_vel = -particle_list[particle].velocity[1]
-    particle_list[particle].velocity = (x_vel, y_vel)
-    for velocity in velocity_list:
-      if particle_list[particle].velocity != velocity:
-        x_vel = velocity[0] + particle_list[particle].velocity[0]
-        y_vel = velocity[1] + particle_list[particle].velocity[1]
+#def check_collision(particle_list):
+#  position_list = list()
+#  duplicates_list = list()
+#  index_list = list()
+#  velocity_list = list()
+#  duplicates = 0
+#  for particle in particle_list:
+#    position_list.append(particle.position)
+#  for i in range(0,len(position_list) - 1):
+#    for j in range(0,len(position_list) - 1):
+#      if position_list[i] == position_list[j]:
+#        duplicates += 1
+#      duplicates_list.append(duplicates)
+#  for index in range(0, len(duplicates_list) - 1):
+#    if duplicates_list[index] > 1:
+#      index_list.append(index)
+#  for particle in range(0, len(particle_list) - 1):
+#    for index in index_list:
+#      if particle == index:
+#        velocity_list.append(particle_list[index].velocity)
+#  for particle in range(0, len(particle_list) - 1):
+#    x_vel = -particle_list[particle].velocity[0]
+#    y_vel = -particle_list[particle].velocity[1]
+#    particle_list[particle].velocity = (x_vel, y_vel)
+#    for velocity in velocity_list:
+#      if particle_list[particle].velocity != velocity:
+#        x_vel = velocity[0] + particle_list[particle].velocity[0]
+#        y_vel = velocity[1] + particle_list[particle].velocity[1]
 
 
 
