@@ -23,7 +23,7 @@
 #
 #Particle 2
 #mass
-1
+5
 #initial x position
 400
 #initial y position

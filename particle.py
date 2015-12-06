@@ -12,6 +12,7 @@ class Particle:
         self.velocity = kwargs.get('velocity',(0,))
         self.acceleration = kwargs.get('acceleration',(0, 0)) # acceleration m/s^2
         self.angle = kwargs.get('angle',0)
+        self.color = kwargs.get('color', (0,0,0))
 
     def set_position(self, interval,planetary_obj):
         x_pos = self.position[0] + self.velocity[0] * interval
