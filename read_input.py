@@ -17,8 +17,7 @@ def read_input(input_file):
     if gravity == 1:
         planetary_obj = Earth()
 
-    del new_input[0]
-    del new_input[1]
+    del new_input[0:2]
     for index in range(0, number_of_particles):
         random_int1 = random.randint(0,254)
         random_int2 = random.randint(0,254)

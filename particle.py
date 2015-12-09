@@ -9,15 +9,16 @@ class Particle:
     def __init__(self,**kwargs):
         self.mass = kwargs.get('mass',1) # mass - kg
         self.position= kwargs.get('position',(0,0))
-        self.velocity = kwargs.get('velocity',(0,))
+        self.velocity = kwargs.get('velocity',(0,0))
         self.acceleration = kwargs.get('acceleration',(0, 0)) # acceleration m/s^2
         self.angle = kwargs.get('angle',0)
         self.color = kwargs.get('color', (0,0,0))
+        self.friction = kwargs.get('friction',0)
 
-    def set_position(self, interval,planetary_obj):
+    def set_position(self, interval,gravity):
         x_pos = self.position[0] + self.velocity[0] * interval
         x_vel = self.velocity[0]
-        y_pos = self.position[1] + self.velocity[1] * interval - 0.5 * planetary_obj.grav_accel * math.pow(interval,2)
+        y_pos = self.position[1] + self.velocity[1] * interval + 0.5 * gravity * math.pow(interval,2)
         y_vel = self.velocity[1] - 9.8 * interval
         self.position = (x_pos, y_pos)
         self.velocity = (x_vel, y_vel)
