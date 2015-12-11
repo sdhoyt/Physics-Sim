@@ -23,7 +23,13 @@ def read_input(input_file):
         random_int2 = random.randint(0,254)
         random_int3 = random.randint(0,254)
 
-        particle_list.append(Particle(color = (random_int1,random_int2,random_int3),mass = int(new_input[0]),position = (int(new_input[1]), int(new_input[2])),velocity = (int(new_input[3]), int(new_input[4])),acceleration = (int(new_input[5]), int(new_input[6]))))
+        particle_list.append(Particle(
+            color = (random_int1,random_int2,random_int3),
+            mass = int(new_input[0]),
+            position = (int(new_input[1]), int(new_input[2])),
+            velocity = (int(new_input[3]), int(new_input[4])),
+            acceleration = (int(new_input[5]), int(new_input[6]))
+        ))
         del new_input[0:7]
 
     return particle_list, planetary_obj

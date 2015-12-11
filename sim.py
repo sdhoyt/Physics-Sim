@@ -7,7 +7,12 @@ from PhysicsWorld import check_collision
 def refresh_img(particle_list,background_colour):
   screen.fill(background_colour)
   for particle in particle_list:
-    pygame.draw.circle(screen, particle.color, (int(particle.position[0]), height - int(particle.position[1])), particle.mass * 2, 2)
+    pygame.draw.circle(
+      screen,
+      particle.color,
+      (int(particle.position[0]), height - int(particle.position[1])),
+      particle.mass * 2, 2
+    )
     pygame.display.update()
   time.sleep(0.02)
 
