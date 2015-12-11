@@ -37,8 +37,8 @@ for i in range(0, 5):
     particle_list[i].mass = random.randint(15, 20)
     particle_list[i].position = (random.randint(5, 750),
                                  random.randint(5, 750))
-    particle_list[i].velocity = (random.randint(-200, 200),
-                                 random.randint(-200, 200))
+    particle_list[i].velocity = (random.randint(-5, 5),
+                                 random.randint(0, 0))
 running = True
 while running:
     for event in pygame.event.get():

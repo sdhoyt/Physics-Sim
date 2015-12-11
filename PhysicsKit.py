@@ -4,7 +4,6 @@ class PhysicsWorld:
 
     def __init__(self,**kwargs):
         self.gravity = kwargs.get('gravity',-9.8) # gravitational acceleration - m/s^2
-        self.interval = kwargs.get('interval', 0.2) # intervals of time - s
 
     def check_collision(particle, particle2):
         dx = abs(particle2.position[0] - particle.position[0])
@@ -49,22 +48,23 @@ class Particle:
         #    particle.check_bounds(width, height, interval)
         #    for ii in range(i + 1, len(particle_list)):
         #        PhysicsWorld.check_collision(particle, particle_list[ii])
-    def move(scene):
+
+    def move(scene, world):
         for i, particle in enumerate(scene.particle_list):
-            particle.set_position(scene.world.interval, scene.world.gravity)
-            particle.check_bounds(scene.width, scene.height, scene.world.interval)
+            particle.set_position(world.gravity)
+            particle.check_bounds(scene.width, scene.height)
             for ii in range(i + 1, len(scene.particle_list)):
                 PhysicsWorld.check_collision(particle, scene.particle_list[ii])
 
-    def set_position(self, interval,gravity):
-        x_pos = self.position[0] + self.velocity[0] * interval
+    def set_position(self, gravity):
+        x_pos = self.position[0] + self.velocity[0]
         x_vel = self.velocity[0]
-        y_pos = self.position[1] + self.velocity[1] * interval + 0.5 * gravity * math.pow(interval,2)
-        y_vel = self.velocity[1] - 9.8 * interval
+        y_pos = self.position[1] + self.velocity[1] + 0.5 * gravity
+        y_vel = self.velocity[1] + gravity
         self.position = (x_pos, y_pos)
         self.velocity = (x_vel, y_vel)
 
-    def check_bounds(self, width, height,interval):
+    def check_bounds(self, width, height):
 
         if self.position[0] < 0:
             x_vel = self.velocity[0] * -1 * self.elasticity

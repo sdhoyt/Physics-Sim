@@ -1,10 +1,7 @@
 #2 Free Falling Particles
 #
 #Number of Particles
-2
-#Gravity
-1
-#
+5
 #Particle 1
 #mass
 3
@@ -29,7 +26,52 @@
 #initial y position
 700
 #initial x velocity
+10
+#initial y velocity
+0
+#initial x acceleration
+0
+#initial y acceleration
+0
+#Particle 2
+#mass
+10
+#initial x position
+100
+#initial y position
+800
+#initial x velocity
 60
+#initial y velocity
+0
+#initial x acceleration
+0
+#initial y acceleration
+0
+#Particle 2
+#mass
+3
+#initial x position
+300
+#initial y position
+400
+#initial x velocity
+30
+#initial y velocity
+0
+#initial x acceleration
+0
+#initial y acceleration
+0
+#Particle 2
+#mass
+5
+#initial x position
+400
+#initial y position
+700
+#initial x velocity
+10
 #initial y velocity
 0
 #initial x acceleration

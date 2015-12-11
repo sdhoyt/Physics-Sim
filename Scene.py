@@ -1,8 +1,6 @@
 import PhysicsKit
 import pygame
-import time
 import random
-
 
 class Scene:
 
@@ -14,7 +12,8 @@ class Scene:
         self.PhysicsWorld = PhysicsKit.PhysicsWorld
         self.Particle = PhysicsKit.Particle
         self.world = self.PhysicsWorld()
-        self.particle_list = self.get_particle_list()
+        #self.particle_list = self.get_particle_list()
+        self.particle_list = self.read_input('freeFalling-2.txt')
 
     def refresh_img(self):
         self.screen.fill(self.background_colour)
@@ -26,7 +25,6 @@ class Scene:
                 particle.mass * 2, 2
             )
             pygame.display.update()
-        time.sleep(0.02)
 
     def get_particle_list(self):
         particle_list = list()
@@ -45,8 +43,35 @@ class Scene:
 
         return particle_list
 
+    def read_input(self, input_file):
+        particle_list = list()
+        inputFile = open(input_file)
+        input = inputFile.readlines()
+        new_input = list()
+        for index in range(0, len(input)):
+            if input[index][0] != '#':
+                new_input.append(input[index])
+        number_of_particles = int(new_input[0])
+        del new_input[0]
+        for index in range(0, number_of_particles):
+            random_int1 = random.randint(0,254)
+            random_int2 = random.randint(0,254)
+            random_int3 = random.randint(0,254)
+
+            particle_list.append(self.Particle(
+                color = (random_int1,random_int2,random_int3),
+                mass = int(new_input[0]),
+                position = (int(new_input[1]), int(new_input[2])),
+                velocity = (int(new_input[3]), int(new_input[4])),
+            ))
+            del new_input[0:7]
+
+        return particle_list
+
     def __init__(self):
         self.set_up()
+        testWorld = self.PhysicsWorld()
+        testWorld.gravity = -0.98
         pygame.display.set_caption('Physics Sim')
         self.screen.fill(self.background_colour)
         pygame.display.flip()
@@ -57,7 +82,7 @@ class Scene:
                 if event.type == pygame.QUIT:
                   running = False
 
-            self.Particle.move(self)
+            self.Particle.move(self, testWorld)
             self.refresh_img()
 
         pygame.quit()
